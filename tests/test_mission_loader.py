@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from src.mission_loader import JOINTS, get_joint_columns, load_mission_log
+from src.mission_loader import JOINTS, get_joint_cols, load_mission_log
 
 
 SAMPLE_CSV_PATH = Path(__file__).parent.parent / "data" / "Sample_mission_log.csv"
@@ -30,7 +30,7 @@ def test_load_mission_log_joint_metric_cols():
     cleaned_df = load_mission_log(SAMPLE_CSV_PATH)
 
     for metric in ["temp_c", "torque_nm", "current_a"]:
-        for column in get_joint_columns(metric):
+        for column in get_joint_cols(metric):
             assert column in cleaned_df.columns
 
 

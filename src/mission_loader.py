@@ -72,10 +72,10 @@ NUMERIC_COLUMNS = [
 
 
 def validate_mission_data(df: pd.DataFrame) -> None:
-    missing_columns = REQUIRED_COLUMNS - set(df.columns)
+    missing_cols = REQUIRED_COLUMNS - set(df.columns)
 
-    if missing_columns:
-        missing = ", ".join(sorted(missing_columns))
+    if missing_cols:
+        missing = ", ".join(sorted(missing_cols))
         raise ValueError(f"Mission log is missing required columns: {missing}")
 
 
@@ -102,5 +102,5 @@ def load_mission_log(file_path: str | Path) -> pd.DataFrame:
     return clean_mission_log(df)
 
 
-def get_joint_columns(metric: str) -> list[str]:
+def get_joint_cols(metric: str) -> list[str]:
     return [f"{joint}_{metric}" for joint in JOINTS]
