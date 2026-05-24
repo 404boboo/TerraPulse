@@ -20,7 +20,7 @@ def get_max_joint_value(df: pd.DataFrame, metric: str) -> float:
 # This function detects if the robot is physically stalled.
 # Compares X and Y coordinates then check if robot is actively suppoted to be moving
 # If it find a match it increments same_position_counter, if it hits the threshold(defualts to 3 rows in a row), it returns True
-def detect_stalled_robot(df: pd.DataFrame, repeated_points_threshold: int = 3) -> pd.DataFrame:
+def detect_stalled_robot(df: pd.DataFrame, repeated_points_threshold: int = 3) -> bool:
     same_position_counter = 1
 
     for i in range(1, len(df)):
