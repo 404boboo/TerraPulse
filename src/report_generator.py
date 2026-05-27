@@ -109,7 +109,7 @@ def generate_mission_summary(df: Any) -> str:
             if column in columns:
                 series = df[column]
                 try:
-                    times = pd.to_datetime(series) if pd is not None else series
+                    times = pd.to_datetime(series, format="%M:%S") if pd is not None else series
                     start_time = times.min()
                     end_time = times.max()
                 except Exception:
