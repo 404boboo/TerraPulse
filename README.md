@@ -18,14 +18,12 @@ TerraPulse is an AI Robotics Diagnostic Assistant that analyzes robot telemetry,
 ## Planned Robot Support
 
 - Mobile robots
-- Quadrupeds
 - Manipulators
+- Drones
 - Industrial robotic systems
-- Generic robotics platforms
+- Generic robotics
 
-## Long-Term Vision
-
-TerraPulse will evolve from telemetry review into an AI-assisted diagnostics workflow:
+## Workflow Vision
 
 Robot telemetry -> Diagnostics Engine -> AI Assistant -> Engineering recommendations
 
