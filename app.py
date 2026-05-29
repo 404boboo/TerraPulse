@@ -15,6 +15,40 @@ from src.report_pipeline import export_mission_report
 DEFAULT_CSV_PATH = Path("data/Sample_mission_log.csv")
 
 
+def _apply_dashboard_style() -> None:
+    st.markdown(
+        """
+        <style>
+        div[data-testid="stCaptionContainer"] {
+            margin-bottom: 1rem;
+        }
+        div[data-testid="stTabs"] {
+            margin-top: 1.5rem;
+        }
+        div[data-testid="stTabs"] button[role="tab"] {
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            border-radius: 0.4rem;
+            margin-right: 0.35rem;
+            padding: 0.45rem 0.85rem;
+            background: rgba(31, 41, 55, 0.92);
+            color: rgba(248, 250, 252, 0.96);
+        }
+        div[data-testid="stTabs"] button[aria-selected="true"] {
+            border-color: rgba(56, 189, 248, 0.95);
+            border-bottom: 3px solid rgba(56, 189, 248, 0.95);
+            background: rgba(51, 65, 85, 1);
+            color: rgba(255, 255, 255, 1);
+            font-weight: 600;
+        }
+        div[data-testid="stTabs"] div[role="tabpanel"] {
+            padding-top: 1.25rem;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def _format_metric(value: object, suffix: str = "") -> str:
     if value is None or pd.isna(value):
         return "N/A"
@@ -317,6 +351,7 @@ def _export_report_controls(csv_path: Path, key_prefix: str) -> None:
 
 def main() -> None:
     st.set_page_config(page_title="TerraPulse", layout="wide")
+    _apply_dashboard_style()
     st.title("TerraPulse")
     st.caption("Quadruped Mission Replay, Route Risk Scoring, and Field Incident Analysis")
 
@@ -329,7 +364,10 @@ def main() -> None:
     mission_df = dashboard["mission_df"]
     _show_sidebar_metadata(csv_path, dashboard)
 
+    st.markdown("## Mission Overview")
+    st.caption("Executive snapshot of route risk, mission conditions, and detected joint-level events.")
     _show_metric_cards(dashboard["metric_cards"])
+    st.divider()
 
     st.sidebar.header("Report Export")
     with st.sidebar:
