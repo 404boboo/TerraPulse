@@ -1,38 +1,41 @@
 # TerraPulse
 
-TerraPulse is Quadruped Mission Replay, Route Risk Scoring, and Field Incident Analysis
+TerraPulse is an AI Robotics Diagnostic Assistant that analyzes robot telemetry, detects operational issues, identifies diagnostic findings, and generates engineer-ready insights across multiple robot platforms.
 
-It replays robot missions, scores route risk, detects operational incidents, and generates engineer-ready reports from exported, simulated, or real telemetry.
+## Current Capabilities
 
-The project starts with CSV mission exports and is designed to evolve toward ROS2, Gazebo, NVIDIA Isaac Sim, CAN bus telemetry, real robot hardware, and ML-based risk prediction.
+- Telemetry ingestion
+- Risk scoring
+- Event detection
+- Mission diagnostics
+- Report generation
+- Dashboard visualization
 
-## Core Goals
+## Supported Today
 
-- Replay quadruped inspection missions
-- Visualize robot telemetry over time
-- Score operational route risk
-- Detect mission incidents and failures
-- Generate engineering incident reports
-- Support simulated and real robotics telemetry
-- Prepare structured datasets for future ML prediction
+- Quadruped robots
 
-## Planned Tech Stack
+## Planned Robot Support
 
-### Initial MVP
+- Mobile robots
+- Quadrupeds
+- Manipulators
+- Industrial robotic systems
+- Generic robotics platforms
+
+## Long-Term Vision
+
+TerraPulse will evolve from telemetry review into an AI-assisted diagnostics workflow:
+
+Robot telemetry -> Diagnostics Engine -> AI Assistant -> Engineering recommendations
+
+The current quadruped CSV pipeline remains the first supported robot profile while future phases introduce normalized telemetry models, multi-robot profiles, adaptive diagnostics, AI reasoning, and robotics integrations.
+
+## Current Tech Stack
+
 - Python
-- Streamlit
-- Pandas
+- pandas
+- pytest
 - Plotly
-- Pytest
-
-### Robotics Integration
-- ROS2
-- Gazebo
-- NVIDIA Isaac Sim
-- MCAP / rosbag support
-- CAN bus telemetry adapters
-
-### Future ML Stack
-- Scikit-learn
-- XGBoost
-- PyTorch 
+- Streamlit
+- Markdown reports
